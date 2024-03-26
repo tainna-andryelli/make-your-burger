@@ -92,6 +92,8 @@ export default {
         status: "Solicitado",
       };
 
+      const dataJson = JSON.stringify(data);
+
       //enviando a requisição
       const req = await fetch("http://localhost:3000/burgers", {
         method: "POST",
@@ -101,6 +103,7 @@ export default {
 
       //resgatar a respostas se quiser:
       const res = await req.json();
+      console.log(res);
 
       //mensagem de sistema
 
