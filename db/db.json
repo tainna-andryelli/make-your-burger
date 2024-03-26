@@ -212,6 +212,25 @@
         "Tomate"
       ],
       "status": "Solicitado"
+    },
+    {
+      "id": "4e3c",
+      "nome": "Flávio",
+      "carne": "Maminha",
+      "pao": "Parmesão e Orégano",
+      "opcionais": [
+        "Cheddar",
+        "Cebola roxa"
+      ],
+      "status": "Solicitado"
+    },
+    {
+      "id": "6ef4",
+      "nome": "Adriane Kippler",
+      "carne": "Veggie burger",
+      "pao": "Italiano Branco",
+      "opcionais": [],
+      "status": "Solicitado"
     }
   ]
 }
