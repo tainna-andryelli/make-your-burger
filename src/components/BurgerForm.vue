@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Message Component teste</p>
+    <Message ref="message" :msg="msg" />
     <form id="burger-form" @submit="createBurger">
       <div class="input-container">
         <label for="nome">Nome do Cliente</label>
@@ -56,8 +56,13 @@
 </template>
 
 <script>
+import Message from "./Message";
+
 export default {
   name: "BurgerForm",
+  components: {
+    Message,
+  },
   data() {
     return {
       paes: null,
@@ -70,6 +75,13 @@ export default {
       status: "Solicitado",
       msg: null,
     };
+  },
+  watch: {
+    msg() {
+      if (this.msg) {
+        this.$refs.message.showMessage();
+      }
+    },
   },
   methods: {
     async getIngredientes() {
@@ -101,11 +113,15 @@ export default {
         body: dataJson,
       });
 
-      //resgatar a respostas se quiser:
+      //resgatar a resposta se quiser:
       const res = await req.json();
       console.log(res);
 
       //mensagem de sistema
+      this.msg = `Pedido Nº ${res.id} realizado com sucesso.`;
+
+      //limpar mensagem
+      setTimeout(() => (this.msg = null), 3000);
 
       //limpar campos
       this.nome = "";
